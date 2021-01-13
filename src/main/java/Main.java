@@ -1,9 +1,11 @@
 import Controllers.LoginController;
+import Models.LoginModel;
 import Views.LoginView;
 
 public class Main {
     public static void main(String[] args) {
-        LoginView loginView = new LoginView(new LoginController());
-        loginView.init();
+        LoginView loginView = new LoginView();
+        LoginModel loginModel = new LoginModel();
+        LoginController loginController = new LoginController(loginView, loginModel);
     }
 }
