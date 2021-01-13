@@ -1,8 +1,9 @@
 package Views;
 
-import Controllers.LoginController;
+import Models.User;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
 public class LoginView {
 //    private LoginController loginController;
@@ -11,7 +12,7 @@ public class LoginView {
     private JLabel passwordLabel;
     private JTextField usernameField;
     private JTextField passwordField;
-    public JButton loginButton;
+    private JButton loginButton;
 
 
     public LoginView () {
@@ -24,7 +25,7 @@ public class LoginView {
 
         this.usernameField = new JTextField();
         this.usernameField.setBounds(110, 15, 200, 30);
-        this.passwordField = new JTextField();
+        this.passwordField = new JPasswordField();
         this.passwordField.setBounds(110, 50, 200, 30);
 
         this.loginButton = new JButton("Login");
@@ -38,9 +39,34 @@ public class LoginView {
 
         f.add(this.usernameLabel);
         f.add(this.usernameField);
-        f.add(this.passwordField);
+        f.add(this.passwordLabel);
         f.add(this.passwordField);
         f.add(this.loginButton);
         f.setVisible(true);
+    }
+
+    public String getUsername() {
+        return this.usernameField.getText();
+    }
+
+    public String getPasswrod() {
+        return this.passwordField.getText();
+    }
+
+    public JFrame getFrame() {
+        return this.f;
+    }
+
+    public void addLoginAction(ActionListener actionListener) {
+        this.loginButton.addActionListener(actionListener);
+    }
+
+    public void endView(String userStatus) {
+        this.f.dispose();
+        if (userStatus.equals("admin")) {
+            new AdminView();
+        } else {
+            new UserView();
+        }
     }
 }
