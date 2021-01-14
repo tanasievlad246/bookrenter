@@ -16,8 +16,17 @@ public class AdminController {
     }
 
     //implement add User
+    public void addUser() {
+
+    }
 
     //implement add book
+    public void addBook() {
+
+    }
 
     //implement view rented books
+    public void viewRentedBooks() {
+
+    }
 }

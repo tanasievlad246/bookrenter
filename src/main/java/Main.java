@@ -1,7 +1,7 @@
 import Controllers.LoginController;
 import Models.LoginModel;
-import Views.AdminView;
-import Views.LoginView;
+import Models.User;
+import Views.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,6 +9,8 @@ public class Main {
 //        LoginModel loginModel = new LoginModel();
 //        LoginController loginController = new LoginController(loginView, loginModel);
 
-        new AdminView();
+//        new AdminView();
+//        new AddBookView();
+        new CreateUserView();
     }
 }
