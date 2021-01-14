@@ -26,7 +26,13 @@ public class User {
         this.adminStatus = adminStatus;
     }
 
-    //implement create user
+    //implement create user if admin
+    public void createAdmin() {
 
-    //implement create admin
+    }
+
+    //implement create admin if admin
+    public void createUser() {
+
+    }
 }

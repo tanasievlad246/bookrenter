@@ -18,6 +18,17 @@ public class Book {
     }
 
     //implement create book function
+    public void createBook() {
+
+    }
 
     //implement get books model
+    public void getBooks() {
+
+    }
+
+    //implement rent book
+    public static void rentBook(int bookId, int userId){
+
+    }
 }

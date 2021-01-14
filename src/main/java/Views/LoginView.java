@@ -53,10 +53,6 @@ public class LoginView {
         return this.passwordField.getText();
     }
 
-    public JFrame getFrame() {
-        return this.f;
-    }
-
     public void addLoginAction(ActionListener actionListener) {
         this.loginButton.addActionListener(actionListener);
     }
