@@ -1,5 +1,7 @@
 package Views;
 
+import Controllers.AdminController;
+import Models.Book;
 import Models.User;
 
 import javax.swing.*;
@@ -60,7 +62,8 @@ public class LoginView {
     public void endView(String userStatus) {
         this.f.dispose();
         if (userStatus.equals("admin")) {
-            new AdminView();
+            AdminView adminView = new AdminView();
+            new AdminController(adminView);
         } else {
             new UserView();
         }

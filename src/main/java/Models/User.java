@@ -1,29 +1,19 @@
 package Models;
 
+import DAO.DatabaseConnection;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+
 public class User {
     private String username;
     private String password;
-    private boolean adminStatus = false;
+    private boolean adminStatus;
+    private DatabaseConnection db;
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public String getUsername() {
-        return this.username;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public boolean isAdminStatus() {
-        return adminStatus;
-    }
-
-    public void setAdminStatus(boolean adminStatus) {
-        this.adminStatus = adminStatus;
+    public User() {
+        this.db = new DatabaseConnection();
     }
 
     //implement create user if admin
@@ -33,6 +23,30 @@ public class User {
 
     //implement create admin if admin
     public void createUser() {
+        //implement create user logic
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setAdminStatus(boolean status) {
+        this.adminStatus = status;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public boolean isAdminStatus() {
+        return adminStatus;
     }
 }

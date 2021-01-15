@@ -50,4 +50,16 @@ public class CreateUserView {
     public void setCreateButtonAction(ActionListener actionListener) {
         this.createButton.addActionListener(actionListener);
     }
+
+    public String getUsernameText() {
+        return this.username.getText();
+    }
+
+    public String getUserPassword() {
+        return this.password.getText();
+    }
+
+    public boolean getRadioButtonValue() {
+        return this.adminOption.isSelected();
+    }
 }

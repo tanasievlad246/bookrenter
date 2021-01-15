@@ -1,5 +1,7 @@
 package Views;
 
+import Controllers.UserController;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
@@ -36,5 +38,13 @@ public class AdminView {
 
     public void addActionListener(ActionListener actionListener, JButton button) {
         button.addActionListener(actionListener);
+    }
+
+    public JButton getCreateUserButton() {
+        return this.createUser;
+    }
+
+    public void createUser(ActionListener actionListener) {
+        this.createUser.addActionListener(actionListener);
     }
 }
