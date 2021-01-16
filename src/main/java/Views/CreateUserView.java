@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class CreateUserView {
-    private JFrame f;
+    private JDialog f;
     private JLabel usernameLabel;
     private JLabel passwordLabel;
     private JTextField username;
@@ -13,7 +13,7 @@ public class CreateUserView {
     private JButton createButton;
 
     public CreateUserView() {
-        this.f = new JFrame("Create new user");
+        this.f = new JDialog();
         this.usernameLabel = new JLabel("Username");
         this.passwordLabel = new JLabel("Password");
         this.username = new JTextField();
@@ -61,5 +61,9 @@ public class CreateUserView {
 
     public boolean getRadioButtonValue() {
         return this.adminOption.isSelected();
+    }
+
+    public void closeView() {
+        this.f.dispose();
     }
 }

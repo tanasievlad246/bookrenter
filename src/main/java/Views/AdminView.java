@@ -43,8 +43,4 @@ public class AdminView {
     public JButton getCreateUserButton() {
         return this.createUser;
     }
-
-    public void createUser(ActionListener actionListener) {
-        this.createUser.addActionListener(actionListener);
-    }
 }

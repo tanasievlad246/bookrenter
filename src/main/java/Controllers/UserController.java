@@ -13,9 +13,6 @@ public class UserController {
     public UserController() {
         this.createUserView = new CreateUserView();
         this.userModel = new User();
-//        String username = createUserView.getUsernameText();
-//        String password = createUserView.getUserPassword();
-//        boolean adminStatus = createUserView.getRadioButtonValue().equals("") ? false : true;
         this.createUserView.setCreateButtonAction(createUser());
     }
 
@@ -30,6 +27,9 @@ public class UserController {
                 userModel.setUsername(username);
                 userModel.setPassword(password);
                 userModel.setAdminStatus(adminStatus);
+
+                userModel.createUser();
+                createUserView.closeView();
             }
         };
     }

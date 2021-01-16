@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class LoginView {
-//    private LoginController loginController;
     private JFrame f;
     private JLabel usernameLabel;
     private JLabel passwordLabel;
@@ -33,7 +32,7 @@ public class LoginView {
         this.loginButton = new JButton("Login");
         this.loginButton.setBounds(130,90,80,25);
 
-        f.setSize(370,200);
+        f.setSize(350,170);
         f.setResizable(false);
         f.setLayout(null);
         f.setLocationRelativeTo(null);

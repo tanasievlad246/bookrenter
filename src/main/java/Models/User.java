@@ -5,6 +5,7 @@ import DAO.DatabaseConnection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.Statement;
 
 public class User {
     private String username;
@@ -16,14 +17,17 @@ public class User {
         this.db = new DatabaseConnection();
     }
 
-    //implement create user if admin
-    public void createAdmin() {
-
-    }
-
     //implement create admin if admin
     public void createUser() {
-        //implement create user logic
+        try {
+            Statement stmt = db.connect.createStatement();
+            stmt.executeUpdate("USE bookrenter");
+            String sql = "INSERT INTO users (username, password, admin) VALUES('"+this.username+"', '"+this.password+"',"+this.adminStatus+")";
+            stmt.execute(sql);
+            System.out.println("user created");
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
     public void setUsername(String username) {
