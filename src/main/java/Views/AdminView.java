@@ -43,4 +43,12 @@ public class AdminView {
     public JButton getCreateUserButton() {
         return this.createUser;
     }
+
+    public JButton getAddBookButton() {
+        return this.addBook;
+    }
+
+    public JButton getViewRentedBooksButton() {
+        return this.viewRented;
+    }
 }

@@ -4,18 +4,17 @@ import Models.Book;
 import Models.User;
 import Views.AdminView;
 import Views.CreateUserView;
+import Views.RentedBooksView;
 
 import java.awt.event.ActionListener;
 
 public class AdminController {
     private AdminView adminView;
-    private Book bookModel;
-    private User userModel;
 
     public AdminController(AdminView adminView) {
         this.adminView = adminView;
 
-        this.addUser();
+        this.init();
     }
 
     private ActionListener createUser() {
@@ -25,17 +24,23 @@ public class AdminController {
     }
 
     //implement add User
-    public void addUser() {
+    private void init() {
         this.adminView.addActionListener(this.createUser(), this.adminView.getCreateUserButton());
+        this.adminView.addActionListener(this.addBook(), this.adminView.getAddBookButton());
+        this.adminView.addActionListener(this.viewRentedBooks(), this.adminView.getViewRentedBooksButton());
     }
 
     //implement add book
-    public void addBook() {
-
+    public ActionListener addBook() {
+        return e -> {
+            new BookController();
+        };
     }
 
     //implement view rented books
-    public void viewRentedBooks() {
-
+    public ActionListener viewRentedBooks() {
+        return e -> {
+            new BookController(new RentedBooksView());
+        };
     }
 }

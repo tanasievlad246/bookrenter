@@ -1,10 +1,6 @@
 package Models;
 
 import DAO.DatabaseConnection;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.Statement;
 
 public class User {
