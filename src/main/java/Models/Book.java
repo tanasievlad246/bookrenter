@@ -40,8 +40,17 @@ public class Book {
     }
 
     //implement get books model
-    public void getBooks() {
-
+    public ResultSet getBooks() {
+        try {
+            Statement stmt = this.db.connect.createStatement();
+            String sql = "SELECT * FROM rented_books";
+            stmt.executeUpdate("USE bookrenter");
+            ResultSet rs = stmt.executeQuery(sql);
+            return rs;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return null;
     }
 
     //implement rent book

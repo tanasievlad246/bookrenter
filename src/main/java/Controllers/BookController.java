@@ -6,6 +6,7 @@ import Views.RentedBooksView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class BookController {
     private RentedBooksView rentedBooksView;
@@ -22,6 +23,12 @@ public class BookController {
     public BookController(RentedBooksView rentedBooksView) {
         this.rentedBooksView = rentedBooksView;
         this.bookModel = new Book();
+        this.rentedBooksView.setRentedBooks(bookModel.getBooks());
+        try {
+            this.rentedBooksView.renderBooks();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     //implement add new book
