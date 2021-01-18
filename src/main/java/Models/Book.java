@@ -40,7 +40,7 @@ public class Book {
     }
 
     //implement get books model
-    public ResultSet getBooks() {
+    public ResultSet getRentedBooks() {
         try {
             Statement stmt = this.db.connect.createStatement();
             String sql = "SELECT * FROM rented_books";
@@ -53,9 +53,52 @@ public class Book {
         return null;
     }
 
+    public ResultSet getRentedByUser(String user_id) {
+        try {
+            String sql = "SELECT * FROM rented_books WHERE user_id="+user_id;
+            Statement stmt = this.db.connect.createStatement();
+            stmt.executeUpdate("USE bookrenter");
+            return stmt.executeQuery(sql);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getAllBooks() {
+        try {
+            String sql = "SELECT * FROM books";
+            Statement stmt = this.db.connect.createStatement();
+            stmt.executeUpdate("USE bookrenter");
+            return stmt.executeQuery(sql);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return null;
+    }
+
     //implement rent book
-    public static void rentBook(int bookId, int userId){
-        //implement renting book logic
+    public void rentBook(int bookId, int userId, String bookTitle, String username) throws SQLException {
+        //prepared statement 4 indexes
+        String sql = "INSERT INTO rented_books (user_id, book_id, username, book_title) VALUES(?, ?, ?, ?)";
+        PreparedStatement preparedStatement = this.db.connect.prepareStatement(sql);
+        preparedStatement.setInt(1,userId);
+        preparedStatement.setInt(2,bookId);
+        preparedStatement.setString(3,username);
+        preparedStatement.setString(4,bookTitle);
+        preparedStatement.execute();
+    }
+
+    public static void unrentBook(String bookId, String userId) {
+        try {
+            DatabaseConnection db = new DatabaseConnection();
+            String sql = "DELETE FROM rented_books WHERE user_id='"+userId+"'AND book_id='"+bookId+"'";
+            Statement stmt = db.connect.createStatement();
+            stmt.executeUpdate("USE bookrenter");
+            stmt.execute(sql);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
     public void setTitle(String title) {

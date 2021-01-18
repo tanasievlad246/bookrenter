@@ -23,7 +23,7 @@ public class BookController {
     public BookController(RentedBooksView rentedBooksView) {
         this.rentedBooksView = rentedBooksView;
         this.bookModel = new Book();
-        this.rentedBooksView.setRentedBooks(bookModel.getBooks());
+        this.rentedBooksView.setRentedBooks(bookModel.getRentedBooks());
         try {
             this.rentedBooksView.renderBooks();
         } catch (SQLException throwables) {

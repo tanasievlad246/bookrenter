@@ -8,6 +8,7 @@ public class User {
     private String password;
     private boolean adminStatus;
     private DatabaseConnection db;
+    private String userId;
 
     public User() {
         this.db = new DatabaseConnection();
@@ -48,5 +49,13 @@ public class User {
 
     public boolean isAdminStatus() {
         return adminStatus;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

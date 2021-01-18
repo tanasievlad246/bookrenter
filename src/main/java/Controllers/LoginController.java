@@ -39,9 +39,9 @@ public class LoginController {
                             rs.beforeFirst();
                             while (rs.next()) {
                                 if (rs.getString("admin").equals("1")) {
-                                    loginView.endView("admin");
+                                    loginView.admin();
                                 } else {
-                                    loginView.endView("user");
+                                    loginView.user(rs.getString("username"), rs.getString("user_id"));
                                 }
                             }
                         }

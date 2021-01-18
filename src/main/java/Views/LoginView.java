@@ -1,6 +1,7 @@
 package Views;
 
 import Controllers.AdminController;
+import Controllers.UserController;
 import Models.Book;
 import Models.User;
 
@@ -58,13 +59,14 @@ public class LoginView {
         this.loginButton.addActionListener(actionListener);
     }
 
-    public void endView(String userStatus) {
+    public void admin() {
         this.f.dispose();
-        if (userStatus.equals("admin")) {
-            AdminView adminView = new AdminView();
-            new AdminController(adminView);
-        } else {
-            new UserView();
-        }
+        AdminView adminView = new AdminView();
+        new AdminController(adminView);
+    }
+
+    public void user(String username, String user_id) {
+        this.f.dispose();
+        new UserController(new UserView(username, user_id));
     }
 }
