@@ -45,7 +45,7 @@ public class BookController {
                 bookModel.setDescription(description);
                 bookModel.setAuthor(author);
                 bookModel.setCoverImage(coverImagePath);
-
+                addBookView.emptyInputs();
                 bookModel.createBook();
             }
         };

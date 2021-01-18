@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import DAO.DatabaseConnection;
+import org.bouncycastle.asn1.dvcs.Data;
 
 public class Book {
     private String title;
@@ -77,16 +78,22 @@ public class Book {
         return null;
     }
 
-    //implement rent book
-    public void rentBook(int bookId, int userId, String bookTitle, String username) throws SQLException {
-        //prepared statement 4 indexes
-        String sql = "INSERT INTO rented_books (user_id, book_id, username, book_title) VALUES(?, ?, ?, ?)";
-        PreparedStatement preparedStatement = this.db.connect.prepareStatement(sql);
-        preparedStatement.setInt(1,userId);
-        preparedStatement.setInt(2,bookId);
-        preparedStatement.setString(3,username);
-        preparedStatement.setString(4,bookTitle);
-        preparedStatement.execute();
+    //Static function for a user to rent a book
+    public static void rentBook(String bookId, String userId, String bookTitle, String username) {
+        try {
+            //prepared statement 4 indexes
+            DatabaseConnection db = new DatabaseConnection();
+            String sql = "INSERT INTO rented_books (user_id, book_id, username, book_title) VALUES(?, ?, ?, ?)";
+            PreparedStatement preparedStatement = db.connect.prepareStatement(sql);
+            preparedStatement.executeUpdate("USE bookrenter");
+            preparedStatement.setString(1,userId);
+            preparedStatement.setString(2,bookId);
+            preparedStatement.setString(3,username);
+            preparedStatement.setString(4,bookTitle);
+            preparedStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public static void unrentBook(String bookId, String userId) {

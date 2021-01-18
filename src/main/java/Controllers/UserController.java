@@ -52,6 +52,9 @@ public class UserController {
             public void actionPerformed(ActionEvent e) {
                  UserBooksView userBooksView = new UserBooksView();
                  userBooksView.setBooks(bookModel.getAllBooks());
+                 userBooksView.setUserId(userView.getUser_id());
+                 userBooksView.setUsername(userView.getUsername());
+                 userBooksView.createBooksComponent();
             }
         };
     }
@@ -66,4 +69,6 @@ public class UserController {
             }
         };
     }
+
+
 }

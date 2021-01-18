@@ -107,6 +107,13 @@ public class AddBookView {
         return this.author.getText();
     }
 
+    public void emptyInputs() {
+        this.bookTitle.setText("");
+        this.bookDescription.setText("");
+        this.author.setText("");
+        this.imagePreview.setIcon(null);
+    }
+
     private ImageIcon createPreviewImage(String imagePath) {
         ImageIcon img = new ImageIcon(imagePath);
         Image getImage = img.getImage();
